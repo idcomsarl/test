@@ -1,0 +1,77 @@
+< div  class =" téléprompteur-conteneur " >
+  < div  class =" téléprompteur-wrapper " >
+    < div  class =" téléprompteur-texte " id =" téléprompterText " > </ div >
+  </div>​​
+</div>
+const  teleprompterText  =  document . getElementById ( 'teleprompterText' ) ;
+
+const  mots-clés  =  [
+  "Storytelling" ,  "Newsletter" ,  "Branding" ,  "Marketing" ,  "Site internet" ,  "Stratégie de marque" ,
+  "Réseaux sociaux" ,  "Logo" ,  "Campagnes publicitaires" ,  "Identité visuelle" ,  "Sites e-commerce" ,
+  "Positionnement" ,  "Image de marque" ,  ​​"Sites responsives" ,  "Intégration web" ,  "Médias sociaux" ,
+  "Création graphique" ,  ​​"Analyse des performances" ,  "Logotype" ,  "Montage vidéo" ,  "Sites vitrines" ,
+  "Animations" ,  "Effets spéciaux" ,  "SEO/SEA" ,  "Chartes graphiques" ,  "Illustrations" ,  "Stratégie marketing" ,
+  "Infographie"
+] ;
+
+const  fullText  =  mots-clés . rejoindre ( ' | ' ) ;
+const  RepeatKeywords  =  Tableau . de ( {  longueur : 10  } ,  ( )  =>  fullText ) . rejoindre ( ' | ' ) ;
+
+téléprompteurTexte . innerHTML  =  `<div class="teleprompter-wrapper"> ${ RepeatKeywords } </div>` ;
+
+fonction  scrollText ( )  {
+  const  largeurtexte  =  téléprompteurTexte . largeur client ;
+  const  conteneurWidth  =  téléprompteurText . noeud parent . largeur client ;
+
+  laissez  currentPosition  =  conteneurWidth ;
+
+  fonction  moveText ( )  {
+    position actuelle -- ;
+    téléprompteurTexte . style . transform  =  `translateX( ${ currentPosition } px)` ;
+
+    si  ( position actuelle  +  largeur du conteneur  >  0 )  {
+      requestAnimationFrame ( moveText ) ;
+    }  autre  {
+      positionactuelle  =  largeurconteneur ;
+      requestAnimationFrame ( moveText ) ;
+    }
+  }
+
+  moveText ( ) ;
+}
+
+scrollText ( ) ;
+corps {
+  marge :  0 ;
+  font-family :  'Work Sans Bold' , sans-serif ;
+  débordement caché ;
+}
+
+. téléprompteur-conteneur {
+  hauteur :  100 vh ;
+  débordement caché ;
+  affichage : flexible;
+  align-items : centre;
+  couleur d'arrière-plan : transparent ;
+}
+
+. téléprompteur-wrapper {
+  display : bloc en ligne ;
+}
+
+. texte du téléprompteur {
+  taille de police :  18 px ;
+  espace blanc : nowrap;
+  débordement caché ;
+  couleur :  # 001f3f ;
+  animation : scrollText 600 s linéaire infini ;
+}
+
+@keyframes scrollText {
+  0 % {
+    transformer :  traduireX ( 0 );
+  }
+  100 % {
+    transformer :  traduireX ( -100 % );
+  }
+}
